@@ -17,7 +17,8 @@
     "no-param-reassign": [0],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "import/no-extraneous-dependencies": "off",
     "arrow-body-style": [0],
-    "import/no-extraneous-dependencies": "off"
+    "prefer-arrow-callback": [0]
   }
 }
