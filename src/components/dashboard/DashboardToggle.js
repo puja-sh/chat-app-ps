@@ -1,5 +1,4 @@
-import React from 'react';
-import { useCallback } from 'react/cjs/react.development';
+import React, { useCallback } from 'react';
 import { Alert, Button, Drawer, Icon } from 'rsuite';
 import { useMediaQuery, useModalState } from '../../misc/custom-hooks';
 import { auth } from '../../misc/firebase';
@@ -16,6 +15,7 @@ const DashboardToggle = () => {
 
     close();
   }, [close]);
+
   return (
     <>
       <Button block color="blue" onClick={open}>
