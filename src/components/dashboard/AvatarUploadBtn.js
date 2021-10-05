@@ -4,6 +4,7 @@ import AvatarEditor from 'react-avatar-editor';
 import { useModalState } from '../../misc/custom-hooks';
 import { database, storage } from '../../misc/firebase';
 import { useProfile } from '../../context/profile.context';
+import ProfileAvatar from './ProfileAvatar';
 
 const fileTypeInput = '.jpeg, .jpg, .png';
 
@@ -75,6 +76,7 @@ const AvatarUploadBtn = () => {
       uesrAvatarRef.set(downloadUrl);
 
       setIsLoading(false); // Uplaoding done to stop the loading
+
       Alert.info('Avatar has been uploaded', 4000);
     } catch (error) {
       setIsLoading(false);
@@ -84,6 +86,11 @@ const AvatarUploadBtn = () => {
 
   return (
     <div className="mt-3 text-center">
+      <ProfileAvatar
+        src={profile.avatar}
+        name={profile.name}
+        className="width-150 height-150 img-fullsize font-huge"
+      />
       <div>
         <label
           htmlFor="avatar-upload"
@@ -109,8 +116,8 @@ const AvatarUploadBtn = () => {
                 <AvatarEditor
                   ref={avatarEditorRef}
                   image={img}
-                  width={200}
-                  height={200}
+                  width={150}
+                  height={150}
                   border={10}
                   borderRadius={100}
                   rotate={0}
