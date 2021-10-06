@@ -76,6 +76,7 @@ const AvatarUploadBtn = () => {
       uesrAvatarRef.set(downloadUrl);
 
       setIsLoading(false); // Uplaoding done to stop the loading
+      close();
 
       Alert.info('Avatar has been uploaded', 4000);
     } catch (error) {

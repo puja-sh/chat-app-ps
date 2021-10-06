@@ -19,7 +19,7 @@ const EditableInput = ({
 
   // Input value on editing mode
   const onEditClickHandler = useCallback(() => {
-    setIsEditable(p => !p); // toggle between true and false
+    setIsEditable(prev => !prev); // toggle between true and false
     setInput(initialValue); // If cancelled set it to Initial Value
   }, [initialValue]);
 
