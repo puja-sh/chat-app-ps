@@ -8,6 +8,10 @@ Open [https://v4.rsuitejs.com/guide/use-with-create-react-app/](https://v4.rsuit
 
 Open migration from v-4 to v-5 [https://rsuitejs.com/guide/v5-features/#migration-from-v-4-to-v-5](https://rsuitejs.com/guide/v5-features/#migration-from-v-4-to-v-)
 
+### `time-ago react`
+
+Open migration from v-4 to v-5 [https://github.com/hustcc/timeago-react](https://github.com/hustcc/timeago-react)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
