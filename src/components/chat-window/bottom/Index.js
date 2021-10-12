@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Index = () => {
+const Bottom = () => {
   return <div>hh</div>;
 };
 
-export default Index;
+export default Bottom;

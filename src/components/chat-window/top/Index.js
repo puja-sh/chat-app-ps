@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { memo } from 'react';
+import { useCurrentRoom } from '../../../context/current-room.context';
 
-const Index = () => {
-  return <div>hh</div>;
+const Top = () => {
+  // current-room-context
+  const name = useCurrentRoom(v => v.name);
+
+  // name = room name
+  return <div>{name}</div>;
 };
 
-export default Index;
+export default memo(Top);
