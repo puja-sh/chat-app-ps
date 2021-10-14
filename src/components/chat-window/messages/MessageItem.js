@@ -9,8 +9,8 @@ import PresenceDot from '../../PresenceDot';
 import IconBtnControl from './IconBtnControl';
 import ProfileInfoBtnModal from './ProfileInfoBtnModal';
 
-const MessageItem = ({ message, handleAdmin }) => {
-  const { author, createdAt, text } = message;
+const MessageItem = ({ message, handleAdmin, handleLike }) => {
+  const { author, createdAt, text, likes, likeCount } = message;
 
   const [selfRef, isHovered] = useHover();
 
@@ -20,6 +20,8 @@ const MessageItem = ({ message, handleAdmin }) => {
   const isMsgAuthorAdmin = admins.includes(author.uid);
   const isAuthor = auth.currentUser.uid === author.uid;
   const canGrantAdmin = isAdmin && !isAuthor;
+
+  const isLiked = likes && Object.keys(likes).includes(auth.currentUser.uid); // indicates message is liked by particular user
 
   return (
     <li
@@ -53,12 +55,14 @@ const MessageItem = ({ message, handleAdmin }) => {
           className="font-normal text-black-45 ml-2"
         />
         <IconBtnControl
-          {...(true ? { color: 'red' } : {})}
-          isVisible
+          {...(isLiked ? { color: 'red' } : {})}
+          isVisible="true"
           iconName="heart"
           tooltip="Like this message"
-          onClick={() => {}}
-          badgeContent={5}
+          onClick={() => {
+            handleLike(message.id);
+          }}
+          badgeContent={likeCount}
         />
       </div>
       <div>
