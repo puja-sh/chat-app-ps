@@ -4,6 +4,7 @@ import { Alert, Icon, Input, InputGroup } from 'rsuite';
 import firebase from 'firebase/app';
 import { useProfile } from '../../../context/profile.context';
 import { database } from '../../../misc/firebase';
+import AttachmentBtnModal from './AttachmentBtnModal';
 
 function assembleMessage(profile, chatId) {
   return {
@@ -67,6 +68,7 @@ const Bottom = () => {
   return (
     <div>
       <InputGroup>
+        <AttachmentBtnModal />
         <Input
           type="text"
           placeholder="Message"
