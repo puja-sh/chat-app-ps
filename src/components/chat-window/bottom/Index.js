@@ -51,7 +51,7 @@ const Bottom = () => {
     setIsLoading(true);
     try {
       await database.ref().update(updates);
-
+      setIsLoading(false);
       setInput('');
     } catch (error) {
       setIsLoading(false);
@@ -65,10 +65,43 @@ const Bottom = () => {
     }
   };
 
+  const afterUpload = useCallback(
+    async files => {
+      // put file in db
+      setIsLoading(true);
+
+      const updates = {};
+
+      files.forEach(file => {
+        const msgData = assembleMessage(profile, chatId);
+        msgData.file = file;
+
+        const messageId = database.ref('messages').push().key; // we will get unique key in real time database
+
+        updates[`/messages/${messageId}`] = msgData;
+      });
+
+      const lastMsgId = Object.key(updates).pop();
+
+      updates[`/rooms/${chatId}/lastMessage`] = {
+        ...updates[lastMsgId],
+        msgId: lastMsgId,
+      };
+      try {
+        await database.ref().update(updates);
+        setIsLoading(false);
+      } catch (error) {
+        setIsLoading(false);
+        Alert.error(error.message, 10000);
+      }
+    },
+    [chatId, profile]
+  );
+
   return (
     <div>
       <InputGroup>
-        <AttachmentBtnModal />
+        <AttachmentBtnModal afterUpload={afterUpload} />
         <Input
           type="text"
           placeholder="Message"
