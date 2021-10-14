@@ -75,18 +75,18 @@ const Bottom = () => {
       files.forEach(file => {
         const msgData = assembleMessage(profile, chatId);
         msgData.file = file;
-
         const messageId = database.ref('messages').push().key; // we will get unique key in real time database
 
         updates[`/messages/${messageId}`] = msgData;
       });
 
-      const lastMsgId = Object.key(updates).pop();
+      const lastMsgId = Object.keys(updates).pop();
 
       updates[`/rooms/${chatId}/lastMessage`] = {
         ...updates[lastMsgId],
         msgId: lastMsgId,
       };
+
       try {
         await database.ref().update(updates);
         setIsLoading(false);
