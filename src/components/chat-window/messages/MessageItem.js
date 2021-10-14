@@ -2,17 +2,18 @@ import React, { memo } from 'react';
 import { Button } from 'rsuite';
 import TimeAgo from 'timeago-react';
 import { useCurrentRoom } from '../../../context/current-room.context';
-import { useHover } from '../../../misc/custom-hooks';
+import { useHover, useMediaQuery } from '../../../misc/custom-hooks';
 import { auth } from '../../../misc/firebase';
 import ProfileAvatar from '../../dashboard/ProfileAvatar';
 import PresenceDot from '../../PresenceDot';
 import IconBtnControl from './IconBtnControl';
 import ProfileInfoBtnModal from './ProfileInfoBtnModal';
 
-const MessageItem = ({ message, handleAdmin, handleLike }) => {
+const MessageItem = ({ message, handleAdmin, handleLike, handleDelete }) => {
   const { author, createdAt, text, likes, likeCount } = message;
 
   const [selfRef, isHovered] = useHover();
+  const isMobile = useMediaQuery('(max-width: 992px)');
 
   const isAdmin = useCurrentRoom(v => v.isAdmin);
   const admins = useCurrentRoom(v => v.admins);
@@ -21,6 +22,7 @@ const MessageItem = ({ message, handleAdmin, handleLike }) => {
   const isAuthor = auth.currentUser.uid === author.uid;
   const canGrantAdmin = isAdmin && !isAuthor;
 
+  const canShowIcons = isMobile || isHovered;
   const isLiked = likes && Object.keys(likes).includes(auth.currentUser.uid); // indicates message is liked by particular user
 
   return (
@@ -54,6 +56,7 @@ const MessageItem = ({ message, handleAdmin, handleLike }) => {
           datetime={createdAt}
           className="font-normal text-black-45 ml-2"
         />
+        {/* Like Btn */}
         <IconBtnControl
           {...(isLiked ? { color: 'red' } : {})}
           isVisible="true"
@@ -64,6 +67,18 @@ const MessageItem = ({ message, handleAdmin, handleLike }) => {
           }}
           badgeContent={likeCount}
         />
+
+        {/* Delete Btn */}
+        {isAuthor && (
+          <IconBtnControl
+            isVisible={canShowIcons}
+            iconName="close"
+            tooltip="Delete this message"
+            onClick={() => {
+              handleDelete(message.id);
+            }}
+          />
+        )}
       </div>
       <div>
         <span className="word-breal-all">{text} </span>
