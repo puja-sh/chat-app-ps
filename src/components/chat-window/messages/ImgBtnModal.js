@@ -12,6 +12,7 @@ const ImgBtnModal = ({ src, fileName }) => {
         src={src}
         alt="file"
         onClick={open}
+        loading="lazy"
         className="mw-100 mh-100 w-auto img-b "
       />
       <Modal show={isOpen} onHide={close}>

@@ -33,7 +33,7 @@ const EditRoomBtnDrawer = () => {
     updateData('description', newDesc);
   };
 
-  const { isMobile } = useMediaQuery('(max-width: 992px)');
+  const isMobile = useMediaQuery('(max-width: 992px)');
   return (
     <div>
       <Button className="br-circle" size="sm" color="red" onClick={open}>
