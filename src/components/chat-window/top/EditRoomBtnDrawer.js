@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { useParams } from 'react-router';
-import { Alert, Button, Drawer } from 'rsuite';
+import { Alert, Button, Drawer, Icon } from 'rsuite';
 import { useCurrentRoom } from '../../../context/current-room.context';
 import { useMediaQuery, useModalState } from '../../../misc/custom-hooks';
 import { database } from '../../../misc/firebase';
@@ -12,8 +12,6 @@ const EditRoomBtnDrawer = () => {
 
   const name = useCurrentRoom(v => v.name);
   const description = useCurrentRoom(v => v.description);
-
-  const { isMobile } = useMediaQuery('(max-width: 992px)');
 
   const updateData = (key, value) => {
     database
@@ -34,10 +32,12 @@ const EditRoomBtnDrawer = () => {
   const onDescriptionSave = newDesc => {
     updateData('description', newDesc);
   };
+
+  const { isMobile } = useMediaQuery('(max-width: 992px)');
   return (
     <div>
       <Button className="br-circle" size="sm" color="red" onClick={open}>
-        A
+        <Icon icon="user" />
       </Button>
 
       <Drawer full={isMobile} show={isOpen} onHide={close} placement="right">
