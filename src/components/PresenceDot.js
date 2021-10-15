@@ -9,7 +9,7 @@ const getColor = presence => {
 
   switch (presence.state) {
     case 'online':
-      return 'green';
+      return 'rgb(17, 255, 17)';
     case 'offline':
       return 'red';
     default:

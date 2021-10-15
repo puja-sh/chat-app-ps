@@ -180,8 +180,8 @@ const Messages = () => {
 
     Object.keys(groups).forEach(date => {
       items.push(
-        <li key={date} className="text-center mb-1 padded">
-          {date}{' '}
+        <li key={date} className="text-center mb-1 padded bg-black-01">
+          {date}
         </li>
       );
 

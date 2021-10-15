@@ -7,6 +7,7 @@ import {
   FormControl,
   FormGroup,
   Icon,
+  IconButton,
   Modal,
   Schema,
 } from 'rsuite';
@@ -62,11 +63,21 @@ const CreateRoomBtnModal = () => {
   };
   return (
     <div className="mt-1">
-      <Button block color="green" onClick={open}>
+      {/* <Button block color="green" onClick={open}>
         <Icon icon="creative" />
         Create a new chat room
-      </Button>
+      </Button> */}
 
+      <IconButton
+        block
+        color="green"
+        onClick={open}
+        icon={<Icon icon="creative" />}
+        appearance="primary"
+        active
+      >
+        Create a new chat room
+      </IconButton>
       <Modal show={isOpen} onHide={close}>
         <Modal.Header>
           <Modal.Title>New chat room</Modal.Title>

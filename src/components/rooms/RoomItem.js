@@ -6,8 +6,8 @@ const RoomItem = ({ room }) => {
   const { createdAt, name, lastMessage } = room;
   return (
     <div>
-      <div className="d-flex justify-content-between align-items-center">
-        <h3 className="text-disappear">{name}</h3>
+      <div className="d-flex justify-content-between align-items-cente ">
+        <h4 className="text-disappear">{name}</h4>
         <TimeAgo
           datetime={
             lastMessage ? new Date(lastMessage.createdAt) : new Date(createdAt)
@@ -27,11 +27,13 @@ const RoomItem = ({ room }) => {
             </div>
             <div className="text-disappear ml-2">
               <div className="italic">{lastMessage.author.name}</div>
-              <span>{lastMessage.text || lastMessage.file.name} </span>
+              <span className="op-color">
+                {lastMessage.text || lastMessage.file.name}
+              </span>
             </div>
           </>
         ) : (
-          <span>No messages yet...</span>
+          <span className="op-color ">No messages yet...</span>
         )}
       </div>
     </div>

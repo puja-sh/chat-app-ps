@@ -7,21 +7,48 @@
 }
 
 .text-black {
-  color: #000 !important;
+  // color: #000 !important;
+  color: #d2d5cc !important;
 }
 
+.text-white {
+  color: #d2d5cc;
+}
 .text-red {
   color: red;
 }
 
 .text-black-45 {
-  color: rgba(0, 0, 0, 0.45);
+  // color: rgba(0, 0, 0, 0.45);
+  color: #d2d5cc;
 }
 
 .text-black-70 {
-  color: rgba(0, 0, 0, 0.7);
+  // color: rgba(0, 0, 0, 0.7);
+  color: #d2d5cc;
+}
+
+.border-green {
+  border: 3px solid rgb(17, 255, 17);
+}
+
+.img-b {
+  border: 3px solid rgb(16, 82, 0);
+  border-radius: 5px;
 }
 
 .bg-black-02 {
   background-color: rgba(0, 0, 0, 0.02);
+}
+.bg-black-01 {
+  background-color: #22252a;
+}
+.rs-avatar-image {
+  position: inherit;
+}
+
+.text-wrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

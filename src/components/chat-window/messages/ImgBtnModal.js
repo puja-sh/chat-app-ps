@@ -12,7 +12,7 @@ const ImgBtnModal = ({ src, fileName }) => {
         src={src}
         alt="file"
         onClick={open}
-        className="mw-100 mh-100 w-auto"
+        className="mw-100 mh-100 w-auto img-b "
       />
       <Modal show={isOpen} onHide={close}>
         <Modal.Header>

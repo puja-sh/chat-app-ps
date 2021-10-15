@@ -155,6 +155,9 @@ $indent_3: 15px;
   font-size: 100px;
 }
 
+.font-small {
+  font-size: 17px;
+}
 .contain-scroll {
   overscroll-behavior: contain;
 }
@@ -249,6 +252,17 @@ $indent_3: 15px;
   padding-bottom: $indent_2;
 }
 
-.pb-3 {
-  padding-bottom: $indent_3;
+.pl-1 {
+  padding-left: 0.5rem;
+}
+.pr-4 {
+  padding-right: 1rem;
+}
+.op-color {
+  color: rgb(141, 141, 141);
+  opacity: 0.6;
+}
+
+.bg-c-grey {
+  background-color: #17141d;
 }

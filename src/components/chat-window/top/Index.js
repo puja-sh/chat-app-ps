@@ -15,7 +15,7 @@ const Top = () => {
   // name = room name
   return (
     <div>
-      <div className="d-flex justify-content-between align-items-center">
+      <div className="d-flex justify-content-between align-items-center text-white">
         <h4 className="text-disappear d-flex align-items-center">
           <Icon
             componentClass={Link}
@@ -35,8 +35,8 @@ const Top = () => {
           {isAdmin && <EditRoomBtnDrawer />}
         </ButtonToolbar>
       </div>
-      <div className="d-flex justify-content-between align-items-center">
-        <span> {description} </span>
+      <div className="d-flex justify-content-between align-items-center text-white">
+        <span className="text-wrap"> {description} </span>
         <RoomInfoBtnModal />
       </div>
     </div>
