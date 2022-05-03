@@ -32,7 +32,8 @@ const Bottom = () => {
   }, []);
 
   const onSendClickHandler = async () => {
-    if (input.trim === '') {
+    if (input.trim() === '') {
+      Alert.warning('Please enter a message');
       return;
     }
 
